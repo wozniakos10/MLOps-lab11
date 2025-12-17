@@ -31,12 +31,16 @@ jobs:
       - name: run ruff check
         run: uv run ruff check .
 
+      #Better way to configure aws creds, than explicitly exporting them to env vars
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }} 
+          aws-region: ${{ env.AWS_REGION }}
+
       - name: run pytest
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
-          AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
         run: |
           uv run python src/lab11_lib/scripts/download_artifacts.py  
           uv run -m pytest 

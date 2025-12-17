@@ -3,7 +3,7 @@ name = "laboratory-11"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12,<3.13"
 
 
 
@@ -13,7 +13,6 @@ integration = [
     "httpx>=0.28.1",
     "pre-commit>=4.3.0",
     "pytest>=8.4.2",
-    "pytest-dotenv>=0.5.2",
     "requests>=2.32.5",
     "ruff>=0.14.0",
     "boto3>=1.42.1",
@@ -25,6 +24,7 @@ integration = [
     "torch>=2.8.0",
     "transformers>=4.57.0",
     "pydantic-settings>=2.12.0",
+    "uvicorn>=0.38.0",
 ]
 deployment = [
     "onnxscript>=0.5.6",
@@ -38,6 +38,7 @@ deployment = [
     "torch>=2.8.0",
     "transformers>=4.57.0",
     "pydantic-settings>=2.12.0",
+    "skl2onnx>=1.19.1",
 ]
 inference = [
     "onnxruntime>=1.23.2",

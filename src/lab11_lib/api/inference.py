@@ -5,10 +5,9 @@ from sentence_transformers import SentenceTransformer
 from sklearn.linear_model import LogisticRegressionCV
 
 from lab11_lib.logger import get_configured_logger
+from lab11_lib.settings import CLASSIFIER_OUTPUT_MAPPER
 
 logger = get_configured_logger()
-
-classifier_output_mapper = {0: "negative", 1: "neutral", 2: "positive"}
 
 
 def load_joblib_model(path: str = "large_models/model/classifier.joblib") -> LogisticRegressionCV | None:
@@ -46,4 +45,4 @@ def predict_sentiment(sentence_transformer: SentenceTransformer, classifier: Log
 
     prediction = classifier.predict(embeddings)
     logger.info(f"Prediction: {prediction}")
-    return classifier_output_mapper[prediction[0]]
+    return CLASSIFIER_OUTPUT_MAPPER[prediction[0]]

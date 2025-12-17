@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from lab11_lib.app import app
+from lab11_lib.deprecated_app import app
 
 client = TestClient(app)
 

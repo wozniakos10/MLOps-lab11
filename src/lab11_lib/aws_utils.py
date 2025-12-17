@@ -4,7 +4,7 @@ import boto3
 
 from lab11_lib.logger import get_configured_logger
 
-logger = get_configured_logger()
+logger = get_configured_logger(__name__)
 
 
 def upload_file_to_s3(file_name, bucket, object_name=None):

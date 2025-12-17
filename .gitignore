@@ -213,6 +213,7 @@ __marimo__/
 .vscode/
 
 large_models/
+models/
 
 *.DS_Store
 *.code-workspace
