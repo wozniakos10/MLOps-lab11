@@ -2,15 +2,18 @@ from fastapi import FastAPI, HTTPException
 
 from lab11_lib.api.inference import load_joblib_model, load_sentence_transformer_model, predict_sentiment
 from lab11_lib.api.models import PredictRequest, PredictResponse
+from lab11_lib.settings import Settings
 
+settings = Settings()
 app = FastAPI()
+
 
 # Different approaches for loading models in FastAPI. Right now following Simple Approach
 ##https://apxml.com/courses/fastapi-ml-deployment/chapter-3-integrating-ml-models/loading-models-fastapi
 
 
-sentence_transformer = load_sentence_transformer_model()
-classifier = load_joblib_model()
+sentence_transformer = load_sentence_transformer_model(settings.LOCAL_SENTENCE_TRANSFORMER_PATH)
+classifier = load_joblib_model(settings.LOCAL_CLASSIFIER_PATH)
 
 
 @app.get("/")

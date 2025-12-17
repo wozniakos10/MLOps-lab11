@@ -33,6 +33,7 @@ jobs:
 
       - name: run pytest
         run: |
+          uv run python src/lab11_lib/scripts/download_artifacts.py  
           uv run -m pytest 
 
       
