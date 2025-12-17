@@ -21,16 +21,18 @@ jobs:
 
       - name: Install dependencies
         # TODO: Add command to sync ONLY integration group dependencies
-        run: uv sync --only-group integration
-
-      
+        run: uv sync --group integration
+     
       # TODO: Add steps for 'ruff check' and 'pytest'
+
+      - name: run pre-commit
+        run: uv run pre-commit run --all-files
 
       - name: run ruff check
         run: uv run ruff check .
 
       - name: run pytest
-        run: uv run pytest tests/
+        run: |
+          uv run -m pytest 
 
-      - name: run pre-commit
-        run: uv run pre-commit run --all-files
+      
