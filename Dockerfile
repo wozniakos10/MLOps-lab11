@@ -30,5 +30,7 @@ COPY models ./models
 # Expose the application port
 EXPOSE 8000
 
-# Run the application 
-CMD ["uvicorn", "lab11_lib.app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+ENTRYPOINT ["python", "-m", "awslambdaric"]
+CMD ["src.lab11_lib.app.handler"]

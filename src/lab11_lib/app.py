@@ -3,6 +3,7 @@ from typing import Dict
 import numpy as np
 import onnxruntime as ort
 from fastapi import FastAPI, HTTPException
+from mangum import Mangum
 from tokenizers import Tokenizer
 
 from lab11_lib.api.models import PredictRequest, PredictResponse
@@ -73,7 +74,11 @@ def predict(request: PredictRequest):
     return PredictResponse(prediction=prediction)
 
 
+handler = Mangum(app)
+
+
 if __name__ == "__main__":
+    # it's for local/integration testing
     import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8000)

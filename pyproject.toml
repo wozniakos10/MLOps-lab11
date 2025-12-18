@@ -45,6 +45,8 @@ inference = [
     "onnxscript>=0.5.6",
     "fastapi>=0.118.2",
     "tokenizers>=0.22.1",
+    "mangum>=0.19.0",
+    "awslambdaric>=3.1.1",
 ]
 
 [tool.ruff]
