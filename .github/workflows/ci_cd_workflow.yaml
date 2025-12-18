@@ -1,16 +1,16 @@
 name: CI/CD workflow
 
 on: 
-workflow_dispatch:
-  inputs:
-      steps:
-        description: 'Choose pipeline steps to run'
-        required: true
-        default: 'integration'
-        type: choice
-        options:
-          - integration
-          - all
+  workflow_dispatch:
+    inputs:
+        steps:
+          description: 'Choose pipeline steps to run'
+          required: true
+          default: 'integration'
+          type: choice
+          options:
+            - integration
+            - all
 
 env:
   AWS_REGION: us-east-1
