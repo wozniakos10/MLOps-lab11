@@ -63,6 +63,20 @@ line-length = 140
 # isort - I
 select = ['E', 'F', 'W', 'A', 'PLC', 'PLE', 'PLW', 'I']
 
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cpu" },
+]
+torchvision = [
+  { index = "pytorch-cpu" },
+]
+
 [tool.uv]
 package = true
 
